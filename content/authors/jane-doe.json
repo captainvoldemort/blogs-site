@@ -4,8 +4,8 @@
   "bio": "Full-stack developer and technical writer. Passionate about building modern web experiences with React and Next.js. Writing about web development, performance, and developer tools.",
   "avatar": "/images/authors/jane-doe.jpg",
   "social": {
-    "twitter": "https://twitter.com/janedoe",
-    "github": "https://github.com/janedoe",
-    "website": "https://janedoe.dev"
+    "twitter": "https://twitter.com/",
+    "github": "https://github.com/",
+    "website": "https://example.com"
   }
 }
