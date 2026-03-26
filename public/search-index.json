@@ -1,0 +1,31 @@
+[
+  {
+    "slug": "building-a-markdown-blog",
+    "title": "Building a Markdown Blog with Search",
+    "description": "A deep dive into creating a powerful blog system using Markdown files, static generation, and client-side search with Fuse.js for lightning-fast results.",
+    "author": "alex-chen",
+    "date": "2026-03-24",
+    "tags": [
+      "markdown",
+      "blogging",
+      "fuse-js",
+      "search",
+      "static-site"
+    ],
+    "content": "The Power of Markdown Blogging Markdown has become the de facto standard for writing content on the web. Its simplicity and readability make it perfect for blog posts, documentation, and technical writing. In this post, we'll explore how to build a complete blogging system that uses Markdown files as the content source, with client-side search powered by Fuse.js. Setting Up the Content Pipeline The key to a Markdown-based blog is a solid content pipeline. Here's how it works: 1. Write blog posts as  files with frontmatter metadata\n2. Parse the frontmatter using \n3. Convert Markdown to HTML using \n4. Render the HTML in your pages Frontmatter Structure Every blog post starts with YAML frontmatter that defines its metadata: Parsing with gray-matter The  library makes it easy to extract frontmatter from Markdown files: Adding Client-Side Search One of the most valuable features of any blog is search. With Fuse.js, we can implement fuzzy search entirely on the client side — no server requir"
+  },
+  {
+    "slug": "getting-started-with-nextjs",
+    "title": "Getting Started with Next.js: A Complete Guide",
+    "description": "Learn how to build modern web applications with Next.js, from project setup to deployment. This guide covers the App Router, static generation, and best practices.",
+    "author": "jane-doe",
+    "date": "2026-03-20",
+    "tags": [
+      "nextjs",
+      "react",
+      "web-development",
+      "tutorial"
+    ],
+    "content": "Why Next.js? Next.js has become one of the most popular frameworks for building React applications. It provides a great developer experience with features like file-based routing, server-side rendering, and static site generation out of the box. Whether you're building a simple blog or a complex web application, Next.js has the tools you need to succeed. Setting Up Your First Project Getting started with Next.js is straightforward. You can create a new project using : This sets up a complete development environment with TypeScript support, ESLint, and Tailwind CSS configured automatically. Understanding the App Router The App Router is Next.js's latest routing paradigm. It uses a file-system based approach where folders define routes: Server Components By default, all components in the App Router are React Server Components. This means they render on the server and send HTML to the client, resulting in smaller JavaScript bundles and faster page loads. Client Components When you need in"
+  }
+]
