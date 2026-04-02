@@ -98,6 +98,10 @@ With static export, you can deploy anywhere — GitHub Pages, Netlify, Vercel, o
 
 ![Next.js Architecture](/images/nextjs-guide-cover.jpg)
 
+Here's a real-world photo showing the kind of environments where static sites shine:
+
+![Sample deployment environment](/images/sample-photo.jpg)
+
 ## Performance Best Practices
 
 Here are some tips to keep your Next.js application fast:
@@ -107,6 +111,10 @@ Here are some tips to keep your Next.js application fast:
 3. **Optimize images** using the Next.js Image component
 4. **Minimize client-side JavaScript** by keeping interactive parts small
 5. **Use static generation** whenever possible
+
+And here's an animated demo of a build process in action:
+
+![Build process animation](/images/test-animation.gif)
 
 ## Conclusion
 
