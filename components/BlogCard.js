@@ -1,21 +1,14 @@
 import Link from 'next/link';
 
-/**
- * Blog post card with lime-accent tags and hover states.
- */
 export default function BlogCard({ post, basePath = '' }) {
-  const coverSrc = post.coverImage
-    ? `${basePath}${post.coverImage}`
-    : null;
+  const coverSrc = post.coverImage ? `${basePath}${post.coverImage}` : null;
 
   return (
     <Link href={`/posts/${post.slug}`} className="group block">
-      <article className="bg-white rounded-2xl border border-surface-100 overflow-hidden 
-                          hover:border-lime-300 hover:shadow-lg hover:shadow-lime-100/30 
-                          transition-all duration-300">
-        {/* Cover Image */}
+      <article className="bg-dark-card border border-dark-border rounded-2xl overflow-hidden
+                          hover:border-accent/20 transition-all duration-300">
         {coverSrc && (
-          <div className="relative aspect-[16/9] overflow-hidden bg-surface-100">
+          <div className="relative aspect-[16/9] overflow-hidden bg-dark-raised">
             <img
               src={coverSrc}
               alt={post.title}
@@ -24,16 +17,14 @@ export default function BlogCard({ post, basePath = '' }) {
           </div>
         )}
 
-        {/* Content */}
         <div className="p-5">
-          {/* Tags */}
           {post.tags && post.tags.length > 0 && (
             <div className="flex flex-wrap gap-1.5 mb-3">
               {post.tags.slice(0, 3).map((tag) => (
                 <span
                   key={tag}
-                  className="px-2.5 py-0.5 text-xs font-medium rounded-full"
-                  style={{ backgroundColor: '#e8ff4733', color: '#5c670e' }}
+                  className="px-2.5 py-0.5 text-[11px] font-medium rounded-full
+                             bg-accent/10 text-accent"
                 >
                   {tag}
                 </span>
@@ -41,25 +32,20 @@ export default function BlogCard({ post, basePath = '' }) {
             </div>
           )}
 
-          {/* Title */}
-          <h3 className="text-lg font-semibold text-surface-900 mb-2 leading-snug 
-                         group-hover:text-lime-700 transition-colors">
+          <h3 className="text-base font-semibold text-white mb-2 leading-snug
+                         group-hover:text-accent transition-colors">
             {post.title}
           </h3>
 
-          {/* Description */}
-          <p className="text-sm text-surface-500 leading-relaxed mb-4 line-clamp-2">
+          <p className="text-sm text-zinc-500 leading-relaxed mb-4 line-clamp-2">
             {post.description}
           </p>
 
-          {/* Meta */}
-          <div className="flex items-center justify-between text-xs text-surface-400">
+          <div className="flex items-center justify-between text-xs text-zinc-600">
             <span className="capitalize">{post.author?.replace(/-/g, ' ')}</span>
             <time dateTime={post.date}>
               {new Date(post.date).toLocaleDateString('en-US', {
-                month: 'short',
-                day: 'numeric',
-                year: 'numeric',
+                month: 'short', day: 'numeric', year: 'numeric',
               })}
             </time>
           </div>

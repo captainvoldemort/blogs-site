@@ -21,55 +21,68 @@ This is the **engineering blog** for **Aptitude**, a vision-first assembly learn
 - **Company**: Common Lab Ventures Pte. Ltd.
 - **Project**: Aptitude
 - **Tagline**: `watch → understand → reproduce`
-- **Logo**: CL icon at `public/images/cl-icon-light.png`
+- **Logo**: CL icon at `public/images/cl-icon-dark.png` (dark variant for dark backgrounds)
 - **Favicon**: `app/icon.png` (auto-detected by Next.js)
 
-### Color Palette
+### Theme: Dark SaaS
 
-The primary brand color is **`#e8ff47`** (lime/yellow-green). All interactive elements use this color and its variants.
+The entire site uses a **#000 black background** with a dark, modern SaaS aesthetic.
 
-| Token         | Hex       | Usage                                    |
-|---------------|-----------|------------------------------------------|
-| `lime-50`     | `#fefff0` | Subtle backgrounds                       |
-| `lime-100`    | `#fcffd6` | Light backgrounds, focus rings            |
-| `lime-200`    | `#f6ffab` | Hover backgrounds                        |
-| `lime-300`    | `#f0ff80` | Borders on hover                         |
-| **`lime-400`**| **`#e8ff47`** | **Primary brand color — tags, buttons, active states** |
-| `lime-500`    | `#d4ed2f` | Slightly muted accents                   |
-| `lime-600`    | `#b8cc1e` | Hover text on links                      |
-| `lime-700`    | `#8a9a14` | Link text, hover states                  |
-| `lime-800`    | `#5c670e` | Dark text on lime backgrounds            |
-| `lime-900`    | `#2e3307` | Very dark text on lime backgrounds       |
+### Design Tokens
 
-The `primary` alias in Tailwind points to the same lime palette.
-
-Neutral colors use the `surface` scale (`surface-50` to `surface-900`), which is a standard gray ramp.
+| Token             | Value       | Usage                                       |
+|-------------------|-------------|---------------------------------------------|
+| `dark-bg`         | `#000000`   | Page background                             |
+| `dark-card`       | `#111111`   | Card / raised surface background            |
+| `dark-raised`     | `#191919`   | Slightly elevated surfaces                  |
+| `dark-border`     | `#222222`   | Borders, dividers                           |
+| `dark-subtle`     | `#0a0a0a`   | Alternating section backgrounds             |
+| `accent`          | `#e8ff47`   | Primary brand color — buttons, tags, links  |
+| `accent-dim`      | `#e8ff4733` | Semi-transparent accent backgrounds         |
+| `accent-hover`    | `#f0ff80`   | Hover state for accent elements             |
+| `accent-dark`     | `#5c670e`   | Dark variant for accent text                |
+| `accent-text`     | `#2e3307`   | Text color on accent backgrounds            |
+| `muted`           | `#a1a1aa`   | Secondary text (zinc-400)                   |
+| Text primary      | `#FFFFFF`   | Headings, important text                    |
+| Text secondary    | `#a1a1aa`   | Body text, descriptions                     |
+| Text tertiary     | `#71717a`   | Subtle labels, metadata                     |
 
 ### Design Conventions
-- **Tags**: Use `backgroundColor: '#e8ff4733'` with `color: '#5c670e'` (semi-transparent lime)
-- **Active tag chips / buttons**: Solid `#e8ff47` background with `surface-900` text
-- **Hover borders**: `border-lime-300`
-- **Hover shadows**: `shadow-lime-100/30`
-- **Links in prose**: `color: #8a9a14`, hover: `#b8cc1e`
-- **Code inline**: `background: #e8ff4722`, `color: #5c670e`
-- **Blockquote border**: Solid `#e8ff47`
-- **Dark sections**: Use `bg-surface-900` with `text-white` and lime accents
-- **Navbar**: Sticky, glassmorphism (`bg-white/80 backdrop-blur-lg`), lime underline on hover
-- **Footer**: Dark (`bg-surface-900`), lime hover on links
-- **Hero**: Dark background with grid pattern, lime glow, lime CTA button
+- **Background**: Always `#000` (black), never white
+- **Cards**: `bg-dark-card` (#111) with `border-dark-border` (#222), rounded-2xl (16px)
+- **Tags**: `bg-accent/10` with `text-accent` (subtle lime on black)
+- **Active states** (buttons, filter chips): Solid `bg-accent` with `text-accent-text`
+- **Hover borders**: `border-accent/20`
+- **Links in prose**: `color: #e8ff47` with underline
+- **Code inline**: `bg-accent/10` with `text-accent`
+- **Blockquote border**: `#e8ff47` (3px left border)
+- **Navbar**: Fixed, transparent bg with backdrop-blur, 70px height
+- **Footer**: Black bg, 4-column grid, zinc text
+- **Hero**: Full viewport, grid pattern, radial glow, oversized typography (64–80px)
+- **Section spacing**: 120px vertical padding (`py-section`)
+- **Max width**: 1280px (`max-w-site`)
+- **Border radius**: 12–16px for cards (rounded-xl / rounded-2xl)
+- **Icons**: SVG icons only — **NO emojis anywhere**. Use Heroicons-style inline SVGs.
+- **Buttons**: Rounded-full (pill shape), accent bg with `hover:brightness-110`
+- **Glow effect**: `animate-glow` class for CTA buttons
+- **Badges**: Outlined pill with `border-accent/20`, accent text, uppercase tracking
 
 ### Typography
-- **Body font**: Inter (loaded via Google Fonts in `globals.css`)
-- **Mono font**: JetBrains Mono (for code blocks)
-- **Prose max-width**: `72ch`
-- **Body text size**: `1.0625rem` (17px)
-- **Line height**: `1.8` for paragraphs
+- **Body font**: Inter (loaded via Google Fonts)
+- **Mono font**: JetBrains Mono (code blocks)
+- **Headings**: Bold/extrabold, tight tracking (`tracking-tight`)
+- **Hero heading**: 64–80px
+- **Section heading**: 48–56px
+- **Card heading**: 14–16px
+- **Body text**: 17px (1.0625rem), line-height 1.85
+- **Small text / labels**: 11px, uppercase, wide tracking
 
 ### Animations
-- `animate-fade-in` — fade in + slide up (0.5s)
+- `animate-fade-in` — fade in + slide up (0.6s)
 - `animate-slide-down` — slide down from top (0.3s)
-- `animate-slide-up` — slide up (0.6s)
+- `animate-slide-up` — slide up 32px (0.7s)
 - `animate-scale-in` — scale from 0.95 to 1 (0.5s)
+- `animate-glow` — pulsing box-shadow glow for CTAs (3s infinite)
 - Use `style={{ animationDelay: '...' }}` for staggered animations
 
 ---
@@ -79,12 +92,12 @@ Neutral colors use the `surface` scale (`surface-50` to `surface-900`), which is
 ```
 blogs-site/
 ├── app/                          # Next.js App Router
-│   ├── layout.js                 # Root layout (Navbar + Footer)
-│   ├── page.js                   # Homepage
-│   ├── globals.css               # Global styles + Tailwind
+│   ├── layout.js                 # Root layout (dark body, Navbar + Footer)
+│   ├── page.js                   # Homepage (SaaS landing page)
+│   ├── globals.css               # Dark theme, prose, animations
 │   ├── icon.png                  # Favicon (auto-detected)
 │   ├── about/page.js             # About Aptitude
-│   ├── scope/page.js             # Scope & Status
+│   ├── scope/page.js             # Scope & Status (tables + SVG icons)
 │   ├── posts/
 │   │   ├── page.js               # Posts feed (server component)
 │   │   ├── PostsFeedClient.js    # Tag filter + posts grid (client)
@@ -92,13 +105,13 @@ blogs-site/
 │   └── author/
 │       └── [slug]/page.js        # Author profile
 ├── components/
-│   ├── Navbar.js                 # Sticky nav with CL logo + search
-│   ├── SearchBar.js              # Fuse.js client-side search
-│   ├── Footer.js                 # Dark footer
-│   ├── BlogCard.js               # Post card (cover, tags, meta)
-│   ├── AuthorCard.js             # Author card (avatar, bio)
-│   ├── HeroSection.js            # Dark hero with lime accents
-│   └── TagFilter.js              # Tag filter chips
+│   ├── Navbar.js                 # Fixed dark navbar, 70px, transparent
+│   ├── SearchBar.js              # Dark Fuse.js search
+│   ├── Footer.js                 # Dark multi-column footer
+│   ├── BlogCard.js               # Dark post card (#111 bg)
+│   ├── AuthorCard.js             # Dark author card
+│   ├── HeroSection.js            # Full-viewport dark hero
+│   └── TagFilter.js              # Dark tag filter chips
 ├── content/
 │   ├── blogs/                    # Markdown posts (filename = slug)
 │   └── authors/                  # Author JSON files (filename = slug)
@@ -109,12 +122,13 @@ blogs-site/
 │   └── generate-search-index.mjs # Prebuild: generates search JSON
 ├── public/
 │   ├── images/                   # All static images
+│   │   ├── cl-icon-dark.png      # Logo (dark variant)
 │   │   └── authors/              # Author avatars
 │   ├── search-index.json         # Generated at build time
-│   └── .nojekyll                 # Prevents Jekyll processing
+│   └── .nojekyll
 ├── .github/workflows/deploy.yml  # GitHub Pages CI/CD
 ├── next.config.js                # Static export + basePath
-├── tailwind.config.js            # Lime palette + typography
+├── tailwind.config.js            # Dark tokens, accent color, spacing
 ├── postcss.config.js
 ├── package.json
 └── Context.md                    # ← This file
@@ -130,17 +144,17 @@ blogs-site/
    ```yaml
    ---
    title: "Post Title"
-   description: "Short description for cards and SEO"
-   author: "author-slug"          # Must match a file in content/authors/
+   description: "Short description"
+   author: "author-slug"
    date: "YYYY-MM-DD"
    tags: ["tag1", "tag2"]
-   coverImage: "/images/cover.jpg" # Path relative to public/
+   coverImage: "/images/cover.jpg"
    ---
    ```
 3. Images go in `public/images/`, referenced as `/images/filename.ext`
 4. GIFs work the same way — `![alt](/images/demo.gif)`
-5. YouTube embeds: use raw `<iframe>` in markdown (remark passes through raw HTML)
-6. The basePath is automatically prepended to `src` attributes at build time
+5. YouTube embeds: raw `<iframe>` in markdown
+6. basePath is automatically prepended to `src` attributes at build time
 
 ### Adding an Author
 1. Create `content/authors/<slug>.json`
@@ -157,13 +171,11 @@ blogs-site/
      }
    }
    ```
-3. Avatar goes in `public/images/authors/`
-4. Link posts to authors via the `author` frontmatter field matching the slug
 
 ### Tags
 - Tags are extracted dynamically from all posts at build time
-- The posts page (`/posts`) has a client-side tag filter
-- No tag registry needed — just add tags in frontmatter and they appear
+- Client-side tag filter on `/posts`
+- No tag registry — just add tags in frontmatter
 
 ---
 
@@ -173,28 +185,29 @@ blogs-site/
 ```bash
 npm run build
 ```
-This runs `prebuild` (generates search index) then `next build` (static export to `out/`).
+Runs `prebuild` (search index) then `next build` (static export → `out/`).
 
-### GitHub Pages Deployment
+### GitHub Pages
 - Automatic via `.github/workflows/deploy.yml` on push to `main`
-- The workflow sets `NEXT_PUBLIC_BASE_PATH=/<repo-name>` automatically
-- Requires GitHub Pages source set to **GitHub Actions** in repo settings
+- Sets `NEXT_PUBLIC_BASE_PATH=/<repo-name>` automatically
+- Requires GitHub Pages source = **GitHub Actions** in repo settings
 
 ### basePath Handling
-- `next.config.js` reads `NEXT_PUBLIC_BASE_PATH` from env
-- `lib/markdown.js` rewrites relative `src` attributes in rendered HTML
-- Components read `basePath` via `process.env.NEXT_PUBLIC_BASE_PATH`
-- Cover images and avatars prepend basePath manually in JSX
+- `next.config.js` reads `NEXT_PUBLIC_BASE_PATH`
+- `lib/markdown.js` rewrites relative `src` in rendered HTML
+- Components prepend basePath for cover images and avatars
 
 ---
 
 ## Key Conventions
 
-1. **"Posts" not "Blog"** — the section is called Posts everywhere (nav, routes, text)
-2. **Routes are under `/posts/`** not `/blog/`
-3. **Lime for all interactive states** — never use the old blue primary
-4. **Dark sections** use `bg-surface-900` — hero, "What Aptitude Is Not", footer
-5. **No placeholder content** — all text references Aptitude / Common Labs
-6. **GIF support** — prose CSS handles `.gif` images with proper sizing
-7. **Tables in prose** — CSS styled for the Scope & Status page
-8. **Server components by default** — only use `'use client'` when needed (search, tag filter, navbar)
+1. **Dark theme everywhere** — #000 background, #111 cards, white text
+2. **"Posts" not "Blog"** — routes under `/posts/`
+3. **Accent #e8ff47 for all interactive states** — buttons, tags, hovers, focus rings
+4. **NO emojis** — use inline SVG icons only (Heroicons style)
+5. **Fixed navbar** — 70px height, transparent with backdrop-blur, offset page content with `pt-28`
+6. **Pill buttons** — `rounded-full`, accent bg for primary, border for secondary
+7. **Large section spacing** — `py-section` (120px)
+8. **Max-width 1280px** — `max-w-site`
+9. **Server components by default** — `'use client'` only for search, tag filter, navbar
+10. **Consistent card styling** — `bg-dark-card border border-dark-border rounded-2xl`

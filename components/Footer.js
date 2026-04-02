@@ -1,77 +1,83 @@
 import Link from 'next/link';
 
-/**
- * Site footer — Common Labs branding.
- */
 export default function Footer() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
+  const columns = [
+    {
+      title: 'Project',
+      links: [
+        { label: 'About Aptitude', href: '/about' },
+        { label: 'Scope & Status', href: '/scope' },
+        { label: 'Posts', href: '/posts' },
+      ],
+    },
+    {
+      title: 'Pipeline',
+      links: [
+        { label: 'Capture', href: '/about' },
+        { label: 'Reconstruct', href: '/about' },
+        { label: 'Understand', href: '/about' },
+        { label: 'Compile', href: '/about' },
+      ],
+    },
+    {
+      title: 'Company',
+      links: [
+        { label: 'Common Lab Ventures', href: '/' },
+        { label: 'Team', href: '/' },
+      ],
+    },
+  ];
+
   return (
-    <footer className="border-t border-surface-100 bg-surface-900 text-surface-300">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="border-t border-white/5 bg-black">
+      <div className="max-w-site mx-auto px-6 py-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           {/* Brand */}
-          <div>
-            <Link href="/" className="flex items-center gap-2.5 mb-3">
+          <div className="col-span-2 md:col-span-1">
+            <Link href="/" className="flex items-center gap-2.5 mb-4">
               <img
-                src={`${basePath}/images/cl-icon-light.png`}
+                src={`${basePath}/images/cl-icon-dark.png`}
                 alt="Common Labs"
                 className="w-7 h-7"
               />
-              <span className="text-base font-bold text-white tracking-tight">
+              <span className="text-sm font-bold text-white uppercase tracking-tight">
                 Common Labs
               </span>
             </Link>
-            <p className="text-sm text-surface-400 leading-relaxed">
-              Building Aptitude — a vision-first system for learning assembly
-              tasks from human demonstration.
+            <p className="text-xs text-zinc-500 leading-relaxed max-w-[200px]">
+              Vision-first assembly learning by observation.
             </p>
           </div>
 
-          {/* Navigation */}
-          <div>
-            <h4 className="text-sm font-semibold text-white mb-3">Navigation</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/" className="text-sm text-surface-400 hover:text-lime-400 transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/posts" className="text-sm text-surface-400 hover:text-lime-400 transition-colors">
-                  Posts
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="text-sm text-surface-400 hover:text-lime-400 transition-colors">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/scope" className="text-sm text-surface-400 hover:text-lime-400 transition-colors">
-                  Scope & Status
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Project */}
-          <div>
-            <h4 className="text-sm font-semibold text-white mb-3">Aptitude</h4>
-            <p className="text-sm text-surface-400 leading-relaxed mb-3">
-              watch → understand → reproduce
-            </p>
-            <p className="text-xs text-surface-500">
-              Common Lab Ventures Pte. Ltd.
-            </p>
-          </div>
+          {columns.map((col) => (
+            <div key={col.title}>
+              <h4 className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-4">
+                {col.title}
+              </h4>
+              <ul className="space-y-2.5">
+                {col.links.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-zinc-500 hover:text-accent transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        <div className="mt-10 pt-6 border-t border-surface-700 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-surface-500">
+        <div className="mt-14 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center
+                        justify-between gap-3">
+          <p className="text-xs text-zinc-600">
             © {new Date().getFullYear()} Common Lab Ventures Pte. Ltd.
           </p>
-          <p className="text-xs text-surface-500">
+          <p className="text-xs text-zinc-600">
             Built in public — progress, failures, and learnings.
           </p>
         </div>

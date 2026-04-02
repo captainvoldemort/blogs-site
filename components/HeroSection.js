@@ -1,84 +1,77 @@
 import Link from 'next/link';
 
-/**
- * Hero section — Aptitude engineering blog.
- */
 export default function HeroSection() {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
-
   return (
-    <section className="relative overflow-hidden bg-surface-900">
-      {/* Grid pattern */}
-      <div className="absolute inset-0 opacity-[0.04]"
-           style={{
-             backgroundImage: `linear-gradient(rgba(232,255,71,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(232,255,71,0.3) 1px, transparent 1px)`,
-             backgroundSize: '48px 48px',
-           }}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
+
+      {/* Subtle grid */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage:
+            'linear-gradient(#e8ff47 1px, transparent 1px), linear-gradient(90deg, #e8ff47 1px, transparent 1px)',
+          backgroundSize: '64px 64px',
+        }}
       />
 
-      {/* Gradient glow */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] opacity-20"
-           style={{
-             background: 'radial-gradient(circle at center, #e8ff47 0%, transparent 70%)',
-           }}
+      {/* Radial glow */}
+      <div
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px]"
+        style={{
+          background: 'radial-gradient(ellipse at center, #e8ff4712 0%, transparent 70%)',
+        }}
       />
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-28 lg:py-36">
-        <div className="max-w-3xl">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full 
-                          border border-lime-400/30 text-lime-400 text-xs font-medium mb-6
-                          animate-fade-in"
-               style={{ backgroundColor: 'rgba(232,255,71,0.08)' }}>
-            <span className="w-1.5 h-1.5 bg-lime-400 rounded-full animate-pulse" />
-            Building in Public
-          </div>
+      <div className="relative max-w-site mx-auto px-6 text-center">
+        {/* Badge */}
+        <div
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent/20
+                     text-accent text-xs font-medium mb-8 animate-fade-in"
+          style={{ backgroundColor: '#e8ff4708' }}
+        >
+          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                  d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          Building in Public
+        </div>
 
-          {/* Heading */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white 
-                         tracking-tight leading-[1.1] mb-6 animate-fade-in"
-              style={{ animationDelay: '0.1s' }}>
-            Aptitude
-            <br />
-            <span className="text-lime-400">
-              Engineering Blog
-            </span>
-          </h1>
+        {/* Heading */}
+        <h1
+          className="text-5xl sm:text-6xl lg:text-[80px] font-extrabold tracking-tight leading-[1.05]
+                     text-white mb-7 animate-fade-in"
+          style={{ animationDelay: '0.1s' }}
+        >
+          Assembly should be
+          <br />
+          <span className="text-accent">observed, not programmed.</span>
+        </h1>
 
-          {/* Subtitle */}
-          <p className="text-lg sm:text-xl text-surface-400 leading-relaxed mb-4 max-w-2xl
-                        animate-fade-in"
-             style={{ animationDelay: '0.2s' }}>
-            Vision-first assembly learning by observation.
-          </p>
-          <p className="text-base text-surface-500 leading-relaxed mb-8 max-w-2xl
-                        animate-fade-in font-mono"
-             style={{ animationDelay: '0.25s' }}>
-            watch → understand → reproduce
-          </p>
+        {/* Subtitle */}
+        <p
+          className="text-lg sm:text-xl text-zinc-400 max-w-xl mx-auto mb-10 leading-relaxed
+                     animate-fade-in"
+          style={{ animationDelay: '0.2s' }}
+        >
+          Aptitude watches human assembly, understands what happened, and compiles it
+          into structured recipes any system can use.
+        </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap gap-3 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            <Link
-              href="/posts"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-lime-400 text-surface-900 
-                         text-sm font-semibold rounded-xl hover:bg-lime-300 transition-colors 
-                         shadow-lg shadow-lime-400/20"
-            >
-              Read Posts
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-2 px-6 py-3 text-surface-300 
-                         text-sm font-medium rounded-xl border border-surface-600 
-                         hover:border-lime-400/40 hover:text-lime-400 transition-colors"
-            >
-              About Aptitude
-            </Link>
-          </div>
+        {/* CTA */}
+        <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
+          <Link
+            href="/about"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-accent
+                       text-accent-text font-semibold text-sm hover:brightness-110
+                       transition-all shadow-lg shadow-accent/20 animate-glow"
+          >
+            Learn More
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
         </div>
       </div>
     </section>

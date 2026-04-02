@@ -1,192 +1,200 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ── Base Styles ─────────────────────────────────────── */
+/* ── Base ─────────────────────────────────────────────── */
 @layer base {
   body {
-    @apply bg-white text-surface-900 antialiased;
+    background-color: #000;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
 
   ::selection {
-    background-color: #e8ff4733;
-    color: #2e3307;
+    background-color: #e8ff4744;
+    color: #fff;
   }
 }
 
-/* ── Blog Content Prose Styles ───────────────────────── */
+/* ── Prose (Blog Content) ────────────────────────────── */
 .prose {
-  @apply text-surface-800 leading-relaxed;
+  color: #d4d4d8;
   font-size: 1.0625rem;
+  line-height: 1.85;
   max-width: 72ch;
 }
 
 .prose h1 {
-  @apply text-3xl font-bold text-surface-900 mt-10 mb-4 tracking-tight;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 2.5em;
+  margin-bottom: 0.8em;
+  letter-spacing: -0.02em;
 }
 
 .prose h2 {
-  @apply text-2xl font-semibold text-surface-900 mt-10 mb-3 tracking-tight;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #e9ecef;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2.5em;
+  margin-bottom: 0.6em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid #222;
+  letter-spacing: -0.01em;
 }
 
 .prose h3 {
-  @apply text-xl font-semibold text-surface-900 mt-8 mb-3;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
 }
 
 .prose p {
-  @apply mb-5 leading-relaxed;
-  line-height: 1.8;
+  margin-bottom: 1.25em;
 }
 
 .prose a {
-  color: #8a9a14;
-  @apply font-medium underline underline-offset-2 transition-colors;
-  text-decoration-color: #d4ed2f66;
+  color: #e8ff47;
+  text-decoration: underline;
+  text-decoration-color: #e8ff4744;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s;
 }
 .prose a:hover {
-  color: #b8cc1e;
-  text-decoration-color: #b8cc1e;
+  text-decoration-color: #e8ff47;
 }
 
 .prose strong {
-  @apply font-semibold text-surface-900;
+  color: #fff;
+  font-weight: 600;
 }
 
-.prose ul,
-.prose ol {
-  @apply mb-5 pl-6;
-}
-
-.prose ul {
-  @apply list-disc;
-}
-
-.prose ol {
-  @apply list-decimal;
-}
-
-.prose li {
-  @apply mb-2 leading-relaxed;
-}
+.prose ul, .prose ol { margin-bottom: 1.25em; padding-left: 1.5em; }
+.prose ul { list-style-type: disc; }
+.prose ol { list-style-type: decimal; }
+.prose li { margin-bottom: 0.5em; }
 
 .prose blockquote {
-  border-left: 4px solid #e8ff47;
-  background-color: #e8ff470d;
-  @apply pl-5 py-3 my-6 italic text-surface-700;
+  border-left: 3px solid #e8ff47;
+  background: #e8ff4708;
+  padding: 0.75em 1.25em;
+  margin: 1.5em 0;
+  color: #a1a1aa;
+  font-style: italic;
 }
 
-.prose img,
-.prose .gif-container img {
-  @apply rounded-xl my-8 shadow-md w-full;
-}
-
-/* GIF support — prevent over-zoom and preserve animation */
-.prose img[src$=".gif"],
-.prose img[src*=".gif"] {
-  @apply rounded-xl my-8 shadow-md;
-  max-width: 100%;
+.prose img, .prose img[src$=".gif"] {
+  border-radius: 12px;
+  margin: 2em 0;
+  width: 100%;
   height: auto;
-  image-rendering: auto;
 }
 
-/* Code blocks */
 .prose pre {
-  @apply bg-surface-900 text-surface-100 rounded-xl p-5 my-6 overflow-x-auto text-sm leading-relaxed shadow-lg;
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  background: #111;
+  color: #e4e4e7;
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: 1.25em;
+  margin: 1.5em 0;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .prose code {
-  background-color: #e8ff4722;
-  color: #5c670e;
-  @apply px-1.5 py-0.5 rounded-md text-sm font-medium;
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  background: #e8ff4715;
+  color: #e8ff47;
+  padding: 0.15em 0.4em;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .prose pre code {
-  @apply bg-transparent text-surface-100 p-0 rounded-none text-sm;
+  background: none;
+  color: #e4e4e7;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
 }
 
-/* Embedded video / iframes */
 .prose iframe {
-  @apply w-full rounded-xl my-8 shadow-md;
+  width: 100%;
+  border-radius: 12px;
+  margin: 2em 0;
   aspect-ratio: 16 / 9;
   border: none;
 }
 
 .prose hr {
-  @apply my-10 border-surface-200;
+  border-color: #222;
+  margin: 3em 0;
 }
 
-/* Tables inside prose (for scope/status page) */
 .prose table {
-  @apply w-full my-6 text-sm;
+  width: 100%;
+  margin: 1.5em 0;
+  font-size: 0.875rem;
   border-collapse: collapse;
 }
 .prose thead th {
-  @apply text-left py-2 px-3 font-semibold text-surface-900 border-b-2 border-surface-200;
+  text-align: left;
+  padding: 0.5em 0.75em;
+  font-weight: 600;
+  color: #fff;
+  border-bottom: 2px solid #333;
 }
 .prose tbody td {
-  @apply py-2 px-3 border-b border-surface-100 text-surface-700;
+  padding: 0.5em 0.75em;
+  border-bottom: 1px solid #1a1a1a;
+  color: #a1a1aa;
 }
 .prose tbody tr:hover {
-  background-color: #e8ff470d;
+  background: #e8ff4708;
 }
 
-/* ── Utility Animations ──────────────────────────────── */
+/* ── Animations ──────────────────────────────────────── */
 @keyframes fade-in {
-  from { opacity: 0; transform: translateY(8px); }
+  from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
-.animate-fade-in {
-  animation: fade-in 0.5s ease-out forwards;
-}
+.animate-fade-in { animation: fade-in 0.6s ease-out forwards; }
 
 @keyframes slide-down {
   from { opacity: 0; transform: translateY(-8px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
-.animate-slide-down {
-  animation: slide-down 0.3s ease-out forwards;
-}
+.animate-slide-down { animation: slide-down 0.3s ease-out forwards; }
 
 @keyframes slide-up {
-  from { opacity: 0; transform: translateY(24px); }
+  from { opacity: 0; transform: translateY(32px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
-.animate-slide-up {
-  animation: slide-up 0.6s ease-out forwards;
-}
+.animate-slide-up { animation: slide-up 0.7s ease-out forwards; }
 
 @keyframes scale-in {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
 }
+.animate-scale-in { animation: scale-in 0.5s ease-out forwards; }
 
-.animate-scale-in {
-  animation: scale-in 0.5s ease-out forwards;
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px #e8ff4730; }
+  50% { box-shadow: 0 0 40px #e8ff4750; }
 }
+.animate-glow { animation: glow-pulse 3s ease-in-out infinite; }
 
 /* ── Scrollbar ───────────────────────────────────────── */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-surface-300 rounded-full;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-surface-400;
-}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #555; }
