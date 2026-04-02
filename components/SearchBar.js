@@ -5,8 +5,7 @@ import Fuse from 'fuse.js';
 import Link from 'next/link';
 
 /**
- * Client-side search bar component using Fuse.js.
- * Fetches the pre-built search index and provides fuzzy search.
+ * Client-side search bar using Fuse.js with lime-accent styling.
  */
 export default function SearchBar({ basePath = '' }) {
   const [query, setQuery] = useState('');
@@ -15,7 +14,7 @@ export default function SearchBar({ basePath = '' }) {
   const [fuse, setFuse] = useState(null);
   const containerRef = useRef(null);
 
-  // Load the search index on mount
+  // Load search index on mount
   useEffect(() => {
     fetch(`${basePath}/search-index.json`)
       .then((res) => res.json())
@@ -36,7 +35,7 @@ export default function SearchBar({ basePath = '' }) {
       .catch((err) => console.error('Failed to load search index:', err));
   }, [basePath]);
 
-  // Search when query changes
+  // Search on query change
   useEffect(() => {
     if (!fuse || query.length < 2) {
       setResults([]);
@@ -48,7 +47,7 @@ export default function SearchBar({ basePath = '' }) {
     setIsOpen(searchResults.length > 0);
   }, [query, fuse]);
 
-  // Close dropdown when clicking outside
+  // Click outside to close
   useEffect(() => {
     function handleClickOutside(event) {
       if (containerRef.current && !containerRef.current.contains(event.target)) {
@@ -84,24 +83,24 @@ export default function SearchBar({ basePath = '' }) {
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => results.length > 0 && setIsOpen(true)}
           className="w-full pl-10 pr-4 py-2 text-sm bg-surface-50 border border-surface-200 
-                     rounded-full focus:outline-none focus:ring-2 focus:ring-primary-200 
-                     focus:border-primary-400 transition-all placeholder:text-surface-400"
+                     rounded-full focus:outline-none focus:ring-2 focus:ring-lime-200 
+                     focus:border-lime-400 transition-all placeholder:text-surface-400"
         />
       </div>
 
-      {/* Search Results Dropdown */}
+      {/* Results Dropdown */}
       {isOpen && (
         <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-surface-200 
                         rounded-xl shadow-xl overflow-hidden z-50 animate-slide-down">
           {results.map(({ item }) => (
             <Link
               key={item.slug}
-              href={`/blog/${item.slug}`}
+              href={`/posts/${item.slug}`}
               onClick={() => {
                 setIsOpen(false);
                 setQuery('');
               }}
-              className="block px-4 py-3 hover:bg-surface-50 transition-colors border-b 
+              className="block px-4 py-3 hover:bg-lime-50 transition-colors border-b 
                          border-surface-100 last:border-b-0"
             >
               <p className="text-sm font-medium text-surface-900 truncate">

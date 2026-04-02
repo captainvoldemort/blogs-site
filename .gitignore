@@ -16,3 +16,6 @@ npm-debug.log*
 # IDE
 .vscode/
 .idea/
+
+# Local context
+local_context_ref/

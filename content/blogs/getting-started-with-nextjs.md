@@ -1,7 +1,7 @@
 ---
 title: "Getting Started with Next.js: A Complete Guide"
 description: "Learn how to build modern web applications with Next.js, from project setup to deployment. This guide covers the App Router, static generation, and best practices."
-author: "jane-doe"
+author: "sambit"
 date: "2026-03-20"
 tags: ["nextjs", "react", "web-development", "tutorial"]
 coverImage: "/images/nextjs-guide-cover.jpg"

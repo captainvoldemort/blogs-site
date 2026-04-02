@@ -1,7 +1,7 @@
 ---
 title: "Building a Markdown Blog with Search"
 description: "A deep dive into creating a powerful blog system using Markdown files, static generation, and client-side search with Fuse.js for lightning-fast results."
-author: "alex-chen"
+author: "akshatha"
 date: "2026-03-24"
 tags: ["markdown", "blogging", "fuse-js", "search", "static-site"]
 coverImage: "/images/markdown-blog-cover.jpg"

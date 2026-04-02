@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 /**
- * Blog post card for use in feed/grid listings.
+ * Blog post card with lime-accent tags and hover states.
  */
 export default function BlogCard({ post, basePath = '' }) {
   const coverSrc = post.coverImage
@@ -9,9 +9,9 @@ export default function BlogCard({ post, basePath = '' }) {
     : null;
 
   return (
-    <Link href={`/blog/${post.slug}`} className="group block">
+    <Link href={`/posts/${post.slug}`} className="group block">
       <article className="bg-white rounded-2xl border border-surface-100 overflow-hidden 
-                          hover:border-surface-200 hover:shadow-lg hover:shadow-surface-100/50 
+                          hover:border-lime-300 hover:shadow-lg hover:shadow-lime-100/30 
                           transition-all duration-300">
         {/* Cover Image */}
         {coverSrc && (
@@ -32,8 +32,8 @@ export default function BlogCard({ post, basePath = '' }) {
               {post.tags.slice(0, 3).map((tag) => (
                 <span
                   key={tag}
-                  className="px-2.5 py-0.5 text-xs font-medium bg-primary-50 text-primary-600 
-                             rounded-full"
+                  className="px-2.5 py-0.5 text-xs font-medium rounded-full"
+                  style={{ backgroundColor: '#e8ff4733', color: '#5c670e' }}
                 >
                   {tag}
                 </span>
@@ -43,7 +43,7 @@ export default function BlogCard({ post, basePath = '' }) {
 
           {/* Title */}
           <h3 className="text-lg font-semibold text-surface-900 mb-2 leading-snug 
-                         group-hover:text-primary-600 transition-colors">
+                         group-hover:text-lime-700 transition-colors">
             {post.title}
           </h3>
 

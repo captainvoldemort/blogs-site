@@ -3,9 +3,9 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 export const metadata = {
-  title: 'BlogSite — Ideas, Stories & Technical Guides',
+  title: 'Aptitude — Engineering Blog | Common Lab Ventures',
   description:
-    'A minimal, fast, and beautifully crafted blog built with Next.js, Markdown, and Fuse.js search.',
+    'Engineering blog for Aptitude, a vision-first system for learning assembly tasks from human demonstration. By Common Lab Ventures.',
 };
 
 export default function RootLayout({ children }) {

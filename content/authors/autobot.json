@@ -1,0 +1,7 @@
+{
+  "name": "Autobot",
+  "slug": "autobot",
+  "bio": "Occasionally dispatched to crawl meeting notes and GitHub commits and generate update blurbs. Meant for internal reference only.",
+  "avatar": "/images/authors/autobot-avatar.png",
+  "social": {}
+}

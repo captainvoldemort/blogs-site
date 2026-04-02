@@ -12,7 +12,8 @@
   }
 
   ::selection {
-    @apply bg-primary-100 text-primary-900;
+    background-color: #e8ff4733;
+    color: #2e3307;
   }
 }
 
@@ -43,8 +44,13 @@
 }
 
 .prose a {
-  @apply text-primary-600 font-medium underline decoration-primary-200 underline-offset-2
-         hover:text-primary-700 hover:decoration-primary-400 transition-colors;
+  color: #8a9a14;
+  @apply font-medium underline underline-offset-2 transition-colors;
+  text-decoration-color: #d4ed2f66;
+}
+.prose a:hover {
+  color: #b8cc1e;
+  text-decoration-color: #b8cc1e;
 }
 
 .prose strong {
@@ -69,11 +75,23 @@
 }
 
 .prose blockquote {
-  @apply border-l-4 border-primary-300 bg-primary-50/50 pl-5 py-3 my-6 italic text-surface-700;
+  border-left: 4px solid #e8ff47;
+  background-color: #e8ff470d;
+  @apply pl-5 py-3 my-6 italic text-surface-700;
 }
 
-.prose img {
+.prose img,
+.prose .gif-container img {
   @apply rounded-xl my-8 shadow-md w-full;
+}
+
+/* GIF support — prevent over-zoom and preserve animation */
+.prose img[src$=".gif"],
+.prose img[src*=".gif"] {
+  @apply rounded-xl my-8 shadow-md;
+  max-width: 100%;
+  height: auto;
+  image-rendering: auto;
 }
 
 /* Code blocks */
@@ -83,7 +101,9 @@
 }
 
 .prose code {
-  @apply bg-surface-100 text-primary-700 px-1.5 py-0.5 rounded-md text-sm font-medium;
+  background-color: #e8ff4722;
+  color: #5c670e;
+  @apply px-1.5 py-0.5 rounded-md text-sm font-medium;
   font-family: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
@@ -100,6 +120,21 @@
 
 .prose hr {
   @apply my-10 border-surface-200;
+}
+
+/* Tables inside prose (for scope/status page) */
+.prose table {
+  @apply w-full my-6 text-sm;
+  border-collapse: collapse;
+}
+.prose thead th {
+  @apply text-left py-2 px-3 font-semibold text-surface-900 border-b-2 border-surface-200;
+}
+.prose tbody td {
+  @apply py-2 px-3 border-b border-surface-100 text-surface-700;
+}
+.prose tbody tr:hover {
+  background-color: #e8ff470d;
 }
 
 /* ── Utility Animations ──────────────────────────────── */
@@ -119,6 +154,24 @@
 
 .animate-slide-down {
   animation: slide-down 0.3s ease-out forwards;
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out forwards;
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-scale-in {
+  animation: scale-in 0.5s ease-out forwards;
 }
 
 /* ── Scrollbar ───────────────────────────────────────── */

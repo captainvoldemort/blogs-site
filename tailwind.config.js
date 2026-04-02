@@ -11,17 +11,30 @@ module.exports = {
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
       colors: {
+        // Brand lime #e8ff47 palette
+        lime: {
+          50:  '#fefff0',
+          100: '#fcffd6',
+          200: '#f6ffab',
+          300: '#f0ff80',
+          400: '#e8ff47',  // base
+          500: '#d4ed2f',
+          600: '#b8cc1e',
+          700: '#8a9a14',
+          800: '#5c670e',
+          900: '#2e3307',
+        },
         primary: {
-          50: '#f0f4ff',
-          100: '#dbe4ff',
-          200: '#bac8ff',
-          300: '#91a7ff',
-          400: '#748ffc',
-          500: '#5c7cfa',
-          600: '#4c6ef5',
-          700: '#4263eb',
-          800: '#3b5bdb',
-          900: '#364fc7',
+          50:  '#fefff0',
+          100: '#fcffd6',
+          200: '#f6ffab',
+          300: '#f0ff80',
+          400: '#e8ff47',
+          500: '#d4ed2f',
+          600: '#b8cc1e',
+          700: '#8a9a14',
+          800: '#5c670e',
+          900: '#2e3307',
         },
         surface: {
           50: '#f8f9fa',
@@ -42,9 +55,9 @@ module.exports = {
             maxWidth: 'none',
             color: '#343a40',
             a: {
-              color: '#4263eb',
+              color: '#8a9a14',
               '&:hover': {
-                color: '#3b5bdb',
+                color: '#b8cc1e',
               },
             },
             'code::before': { content: '""' },
