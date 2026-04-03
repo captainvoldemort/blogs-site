@@ -29,13 +29,13 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Center links (desktop) */}
+        {/* Center links (desktop) — WHITE text */}
         <div className="hidden md:flex items-center gap-7">
           {links.map((l) => (
             <Link
               key={l.href}
               href={l.href}
-              className="text-[13px] font-medium text-zinc-400 hover:text-white transition-colors whitespace-nowrap"
+              className="text-[13px] font-medium text-white/80 hover:text-accent transition-colors whitespace-nowrap"
             >
               {l.label}
             </Link>
@@ -60,7 +60,7 @@ export default function Navbar() {
           className="md:hidden p-2 rounded-lg hover:bg-white/5 transition"
           aria-label="Toggle menu"
         >
-          <svg className="w-5 h-5 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {mobileOpen ? (
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             ) : (
@@ -79,7 +79,7 @@ export default function Navbar() {
                 key={l.href}
                 href={l.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-sm text-zinc-400 hover:text-white py-2.5 px-3 rounded-lg
+                className="text-sm text-white/80 hover:text-accent py-2.5 px-3 rounded-lg
                            hover:bg-white/5 transition"
               >
                 {l.label}

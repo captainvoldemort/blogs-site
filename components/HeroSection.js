@@ -1,26 +1,28 @@
 import Link from 'next/link';
 
 export default function HeroSection() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
+      {/* Background image */}
+      <img
+        src={`${basePath}/images/ourlab.jpg`}
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover"
+        aria-hidden="true"
+      />
+
+      {/* Dark overlay gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black" />
 
       {/* Subtle grid */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.025]"
         style={{
           backgroundImage:
             'linear-gradient(#e8ff47 1px, transparent 1px), linear-gradient(90deg, #e8ff47 1px, transparent 1px)',
           backgroundSize: '64px 64px',
-        }}
-      />
-
-      {/* Radial glow */}
-      <div
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px]"
-        style={{
-          background: 'radial-gradient(ellipse at center, #e8ff4712 0%, transparent 70%)',
         }}
       />
 
@@ -51,7 +53,7 @@ export default function HeroSection() {
 
         {/* Subtitle */}
         <p
-          className="text-lg sm:text-xl text-zinc-400 max-w-xl mx-auto mb-10 leading-relaxed
+          className="text-lg sm:text-xl text-zinc-300 max-w-xl mx-auto mb-10 leading-relaxed
                      animate-fade-in"
           style={{ animationDelay: '0.2s' }}
         >
