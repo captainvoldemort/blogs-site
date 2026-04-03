@@ -59,8 +59,8 @@ export default function ShareSidebar({ title, slug }) {
   };
 
   return (
-    <div className="hidden xl:flex flex-col gap-3 fixed left-[max(1rem,calc((100vw-768px)/2-80px))] top-1/2
-                    -translate-y-1/2 z-30">
+    <div className="hidden xl:flex flex-col gap-3 fixed left-[max(1rem,calc((100vw-768px)/2-80px))] top-40
+                    z-30">
       <span className="text-[10px] text-zinc-600 uppercase tracking-widest font-semibold mb-1 text-center">
         Share
       </span>

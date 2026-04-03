@@ -2,6 +2,7 @@ import HeroSection from '../components/HeroSection';
 import BlogCard from '../components/BlogCard';
 import AuthorCard from '../components/AuthorCard';
 import HomepageCarousel from '../components/HomepageCarousel';
+import HomepageVideo from '../components/HomepageVideo';
 import Link from 'next/link';
 import { getAllPosts } from '../lib/markdown';
 import { getAllAuthors } from '../lib/authors';
@@ -110,16 +111,7 @@ export default function HomePage() {
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <div className="relative aspect-video rounded-2xl overflow-hidden bg-dark-card border
-                            border-dark-border shadow-2xl shadow-accent/5">
-              <iframe
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Aptitude Demo"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full"
-              />
-            </div>
+            <HomepageVideo src={`${basePath}/images/demo-video.mp4`} />
           </div>
         </div>
       </section>
@@ -252,26 +244,24 @@ export default function HomePage() {
       {/* ── Use Cases Carousel ── */}
       <section className="py-section bg-black overflow-hidden">
         <div className="max-w-site mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-12 items-start">
-            {/* Left: text */}
-            <div className="lg:sticky lg:top-32">
-              <span className="inline-block px-3 py-1 rounded-full border border-accent/20 text-accent
-                               text-[11px] font-semibold uppercase tracking-widest mb-5">
-                Applications
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-                Use cases that drive
-                <span className="text-accent"> real value</span>
-              </h2>
-              <p className="text-zinc-500 text-sm leading-relaxed">
-                Explore how structured assembly recipes unlock value across manufacturing,
-                robotics, training, and quality assurance workflows.
-              </p>
-            </div>
-
-            {/* Right: carousel */}
-            <HomepageCarousel items={carouselItems} />
+          {/* Text above */}
+          <div className="mb-12">
+            <span className="inline-block px-3 py-1 rounded-full border border-accent/20 text-accent
+                             text-[11px] font-semibold uppercase tracking-widest mb-5">
+              Applications
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4">
+              Use cases that drive
+              <span className="text-accent"> real value</span>
+            </h2>
+            <p className="text-zinc-500 text-sm leading-relaxed max-w-xl">
+              Explore how structured assembly recipes unlock value across manufacturing,
+              robotics, training, and quality assurance workflows.
+            </p>
           </div>
+
+          {/* Carousel below */}
+          <HomepageCarousel items={carouselItems} />
         </div>
       </section>
 
